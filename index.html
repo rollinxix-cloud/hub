@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="PES Matches - Premium eFootball Competitive Tournament Hosting Platform">
-    <title>PES Matches — eFootball Tournament Platform</title>
+    <meta name="description" content="PES Matches - Premium eFootball Tournament Hosting Platform">
+    <title>PES Matches — Enter The Pitch</title>
     
-    <!-- Resource Hints: Preconnect to optimize DNS handshake performance -->
+    <!-- Preconnect to optimize font delivery performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Teko:wght@600;700&display=swap" rel="stylesheet">
@@ -15,13 +15,12 @@
 </head>
 <body>
 
-    <!-- GLOBAL SITE HEADER -->
+    <!-- SITE HEADER & NAVIGATION -->
     <header class="navbar">
         <a href="https://facebook.com/groups/pesmatches" target="_blank" rel="noopener noreferrer" class="logo" aria-label="PES Matches Facebook Group">
             PES <br><span>MATCHES</span>
         </a>
 
-        <!-- ARIA-Driven Mobile Controls -->
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="navLinks">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -30,147 +29,108 @@
         
         <nav class="nav-links" id="navLinks" aria-label="Main Directory">
             <a href="#" class="nav-item active" data-target="home" role="button">Home</a>
-            <a href="#" class="nav-item" data-target="guidelines" role="button">Guidelines</a>
-            <a href="#" class="nav-item" data-target="registration" role="button">Registration Here</a>
-            <a href="#" class="nav-item" data-target="dashboard" role="button">Live Dashboard</a>
+            <a href="#" class="nav-item" data-target="registration" role="button">Register Here</a>
         </nav>
     </header>
 
-    <!-- CONTENT WRAPPER -->
+    <!-- MAIN INTERACTIVE CONTAINER -->
     <main class="container">
         
-        <!-- SECTION: HOME (Matched 1:1 to Highlight Frames) -->
+        <!-- SECTION: HOME VIEW (Strictly matching your red circle scope) -->
         <section id="page-home" class="page-section active" aria-live="polite">
             <div class="hero-wrapper">
                 <div class="pill-badge">
-                    <span class="icon-pulse" aria-hidden="true">⚽</span> EFOOTBALL TOURNAMENT PLATFORM
+                    <span aria-hidden="true">⚽</span> EFOOTBALL TOURNAMENT PLATFORM
                 </div>
                 <h1 class="hero-title">ENTER THE PITCH</h1>
                 <p class="hero-subtitle">
                     Register for tournaments, validate your entry, and compete live with elite global operators.
                 </p>
-                <button class="btn-primary" type="button" onclick="document.querySelector('[data-target=\'registration\']').click();">
+                <button class="btn-primary" type="button" id="heroRegisterBtn">
                     START REGISTRATION
                 </button>
             </div>
         </section>
 
-        <!-- SECTION: GUIDELINES -->
-        <section id="page-guidelines" class="page-section" aria-live="polite">
-            <div class="section-header">
-                <h2 class="section-title">Tournament Rules & Guidelines</h2>
-                <p class="section-desc">Review standard server parameters and regulatory mechanics before queuing.</p>
-            </div>
-            
-            <div class="rules-grid">
-                <article class="rule-card">
-                    <div class="rule-icon" aria-hidden="true">⏱️</div>
-                    <h3>Match Allocation</h3>
-                    <p>All tournament fixtures are strictly bound to **12 Minutes** in length. Maintain configuration integrity throughout match sessions.</p>
-                </article>
-                <article class="rule-card">
-                    <div class="rule-icon" aria-hidden="true">📶</div>
-                    <h3>Network Thresholds</h3>
-                    <p>Stable connectivity parameters are mandatory. Intentional drop tactics result in immediate, non-negotiable default concessions.</p>
-                </article>
-                <article class="rule-card">
-                    <div class="rule-icon" aria-hidden="true">🛡️</div>
-                    <h3>Roster Integrity</h3>
-                    <p>Only authentic client accounts logged on official software lines are allowed. Exploits or unsanctioned modifications trigger permanent restrictions.</p>
-                </article>
-                <article class="rule-card">
-                    <div class="rule-icon" aria-hidden="true">🤝</div>
-                    <h3>Competitive Conduct</h3>
-                    <p>Toxic behavior or harassment toward administrators or players causes an instant removal from active bracket pools.</p>
-                </article>
-            </div>
-        </section>
-
-        <!-- SECTION: REGISTRATION -->
+        <!-- SECTION: UPDATED REGISTRATION FORM -->
         <section id="page-registration" class="page-section" aria-live="polite">
             <div class="form-wrapper glass-panel">
                 <div class="section-header">
                     <h2 class="section-title">Tournament Registration</h2>
-                    <p class="section-desc">Submit precise identity values below to initialize database placement.</p>
+                    <p class="section-desc">Submit your payment verification and player data details to secure your bracket slot.</p>
                 </div>
 
                 <form id="regForm" autocomplete="on">
                     <div class="form-grid">
+                        <!-- Input Field: Name -->
                         <div class="form-group">
-                            <label for="playerName">Player Handle Name</label>
-                            <input type="text" id="playerName" name="username" placeholder="e.g., Jon_Bonz" required maxlength="50">
+                            <label for="playerName">Name</label>
+                            <input type="text" id="playerName" name="username" placeholder="Your full name or in-game nickname" required maxlength="60">
                         </div>
+                        
+                        <!-- Input Field: Facebook Link -->
                         <div class="form-group">
-                            <label for="efootballId">eFootball Owner ID</label>
-                            <input type="text" id="efootballId" name="gameid" placeholder="e.g., 123-456-789" required pattern="[0-9\-]+">
+                            <label for="fbLink">Facebook Link</label>
+                            <input type="url" id="fbLink" name="facebook_url" placeholder="e.g., https://facebook.com/username" required>
                         </div>
+                        
+                        <!-- Input Field: Tournament Type -->
                         <div class="form-group">
-                            <label for="contactNo">WhatsApp Signal Line</label>
-                            <input type="tel" id="contactNo" name="phone" placeholder="e.g., +977 98XXXXXXXX" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="platform">Deployment Platform</label>
+                            <label for="tournamentType">Tournament Type</label>
                             <div class="select-wrapper">
-                                <select id="platform" name="platform" required>
-                                    <option value="" disabled selected>Select system layout</option>
-                                    <option value="mobile">eFootball Mobile</option>
-                                    <option value="pc">PC (Steam Core)</option>
-                                    <option value="console">PlayStation / Xbox Core</option>
+                                <select id="tournamentType" name="tournament_type" required>
+                                    <option value="" disabled selected>Select tournament style</option>
+                                    <option value="solo_1v1">Solo 1v1 Bracket</option>
+                                    <option value="coop_2v2">Co-Op 2v2 Bracket</option>
+                                    <option value="elite_league">Elite League Division</option>
                                 </select>
                             </div>
                         </div>
+                        
+                        <!-- Input Field: Amount -->
+                        <div class="form-group">
+                            <label for="payAmount">Amount</label>
+                            <input type="text" id="payAmount" name="amount" placeholder="e.g., Rs. 150" required>
+                        </div>
+                        
+                        <!-- Input Field: Esewa or Khalti Dropdown Selector -->
+                        <div class="form-group">
+                            <label for="paymentMethod">Esewa or Khalti</label>
+                            <div class="select-wrapper">
+                                <select id="paymentMethod" name="payment_gateway" required>
+                                    <option value="" disabled selected>Select payment wallet</option>
+                                    <option value="esewa">eSewa Wallet</option>
+                                    <option value="khalti">Khalti Wallet</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Input Field: Transaction Code -->
+                        <div class="form-group">
+                            <label for="txCode">Transaction Code</label>
+                            <input type="text" id="txCode" name="transaction_code" placeholder="Enter your transaction reference ID" required>
+                        </div>
                     </div>
-                    <div class="form-group full-width" style="margin-top: 1.25rem;">
-                        <label for="teamName">Clan / Franchise Association (Optional)</label>
-                        <input type="text" id="teamName" name="team" placeholder="e.g., EDN Esports">
-                    </div>
-                    <div style="text-align: center; margin-top: 2.5rem;">
-                        <button type="submit" class="btn-primary form-submit-btn">PROCEED WITH SUBMISSION</button>
+
+                    <div class="submit-action-row">
+                        <button type="submit" class="btn-primary form-submit-btn">Register</button>
                     </div>
                 </form>
             </div>
         </section>
 
-        <!-- SECTION: LIVE DASHBOARD -->
-        <section id="page-dashboard" class="page-section" aria-live="polite">
-            <div class="section-header">
-                <h2 class="section-title">Live Match Dashboard</h2>
-                <p class="section-desc">Real-time bracket updates and tier arrays monitored live via administrative instances.</p>
-            </div>
-
-            <div class="dashboard-grid">
-                <div class="glass-panel status-card">
-                    <div class="tier-header">
-                        <span class="tier-badge">ELITE LEAGUE TRACKER</span>
-                        <span class="live-pulse"></span>
-                    </div>
-                    <div class="match-row">
-                        <span class="player">Roster_Alpha</span>
-                        <span class="vs-label">vs</span>
-                        <span class="player">Roster_Bravo</span>
-                        <span class="badge badge-live">LIVE</span>
-                    </div>
-                    <div class="match-row">
-                        <span class="player">Roster_Charlie</span>
-                        <span class="vs-label">vs</span>
-                        <span class="player">Roster_Delta</span>
-                        <span class="badge badge-delay">QUEUED</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
     </main>
 
-    <!-- PERFORMANCE LOGIC CORE -->
+    <!-- DYNAMIC ROUTER CONTROLLER SCRIPT -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const menuToggle = document.getElementById('menuToggle');
             const navLinks = document.getElementById('navLinks');
             const navItems = document.querySelectorAll('.nav-item');
             const sections = document.querySelectorAll('.page-section');
+            const heroRegisterBtn = document.getElementById('heroRegisterBtn');
 
-            // Optimized Mobile Drop Navigation Toggle
+            // Responsive Mobile Open/Close Toggle
             const toggleMenu = () => {
                 const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
                 menuToggle.setAttribute('aria-expanded', !isExpanded);
@@ -180,30 +140,43 @@
 
             menuToggle.addEventListener('click', toggleMenu);
 
-            // Single Event Loop Routing Mechanism
+            // Page Routing Engine Fixes (Eliminates layout tracking gaps completely)
+            const switchView = (targetPageId) => {
+                // Instantly clean active nav text styles
+                navItems.forEach(link => {
+                    link.classList.remove('active');
+                    if(link.getAttribute('data-target') === targetPageId) {
+                        link.classList.add('active');
+                    }
+                });
+
+                // Clear layout view elements
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                    if(section.id === `page-${targetPageId}`) {
+                        section.classList.add('active');
+                    }
+                });
+
+                // Smooth snapping to topmost coordinates
+                window.scrollTo({ top: 0, behavior: 'auto' });
+            };
+
             navItems.forEach(item => {
                 item.addEventListener('click', (e) => {
                     e.preventDefault();
                     const targetPage = item.getAttribute('data-target');
-
-                    // Reset navigational classes
-                    navItems.forEach(link => link.classList.remove('active'));
-                    item.classList.add('active');
-
-                    // Close menu drawers if deployed on mobile
                     if(navLinks.classList.contains('open')) toggleMenu();
-
-                    // Execution block for views transition
-                    sections.forEach(section => {
-                        section.classList.remove('active');
-                        if(section.id === `page-${targetPage}`) {
-                            section.classList.add('active');
-                        }
-                    });
-
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    switchView(targetPage);
                 });
             });
+
+            // Connect Home Page Main CTA button cleanly
+            if(heroRegisterBtn) {
+                heroRegisterBtn.addEventListener('click', () => {
+                    switchView('registration');
+                });
+            }
         });
     </script>
 </body>

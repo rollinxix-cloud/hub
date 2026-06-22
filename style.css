@@ -1,34 +1,23 @@
 /* ==========================================================================
-   GLOBAL STYLE VARTOKENS & DESIGN CORE SYSTEM
+   GLOBAL DESIGN VARIABLES & CONFIGURATION
    ========================================================================== */
 :root {
-    /* Semantic Dark Layout Palette */
-    --bg-main: #040710;
-    --panel-glass: rgba(10, 16, 32, 0.72);
-    --border-alpha: rgba(255, 255, 255, 0.06);
-    --input-core: rgba(255, 255, 255, 0.02);
+    --bg-dark-core: #040710;
+    --panel-glass-spec: rgba(10, 16, 32, 0.75);
+    --border-subtle: rgba(255, 255, 255, 0.06);
+    --input-inner-bg: rgba(255, 255, 255, 0.02);
 
-    /* Light Mode Alternative Layout Vectors */
-    --bg-light: #f8fafc;
-    --panel-light: rgba(255, 255, 255, 0.85);
-    --border-light: rgba(15, 23, 42, 0.08);
-    --input-light: #ffffff;
-
-    /* High Contrast Accent Mapping */
-    --cyan-glow: #00b4d8;
-    --gold-esports: #ffd700;
+    --accent-cyan: #00b4d8;
+    --accent-gold: #ffd700;
     --text-primary: #f8fafc;
     --text-dimmed: #94a3b8;
 
-    /* System Typography Standards */
-    --font-display: 'Teko', system-ui, -apple-system, sans-serif;
-    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
-    
-    /* Hardware Accelerated Micro-Transitions */
-    --timing-core: 0.22s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --font-heading: 'Teko', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+    --transition-speed: 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* HIGH-PERFORMANCE RESET LAYER */
+/* BOX-SIZING ARCHITECTURE RESET */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -43,9 +32,8 @@ html {
 body {
     font-family: var(--font-body);
     color: var(--text-primary);
-    background-color: var(--bg-main);
-    /* Multi-layered optimization engine for spatial rendering depth */
-    background-image: linear-gradient(rgba(4, 7, 16, 0.86), rgba(4, 7, 16, 0.95)), url('stadium-bg.jpg');
+    background-color: var(--bg-dark-core);
+    background-image: linear-gradient(rgba(4, 7, 16, 0.88), rgba(4, 7, 16, 0.96)), url('stadium-bg.jpg');
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
@@ -53,64 +41,41 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
-/* ==========================================================================
-   LIGHT MODE DESIGN SPECIFICATIONS (Brightened Overlay Layout Engine)
-   ========================================================================== */
-body.light-mode {
-    background-color: var(--bg-light);
-    background-image: linear-gradient(rgba(248, 250, 252, 0.88), rgba(248, 250, 252, 0.92)), url('stadium-bg.jpg');
-    color: #0f172a;
-}
-body.light-mode .text-dimmed { color: #475569; }
-body.light-mode .navbar { background: rgba(248, 250, 252, 0.92); border-color: var(--border-light); }
-body.light-mode .nav-item { color: #1e293b; }
-body.light-mode .logo { color: #b45309; } /* Safe accessible visual rendering balance */
-body.light-mode .hero-title, body.light-mode .section-title { color: #b45309; }
-body.light-mode .glass-panel, body.light-mode .rule-card { 
-    background: var(--panel-light); 
-    border-color: var(--border-light);
-    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.04);
-}
-body.light-mode input, body.light-mode select { background: var(--input-light); border-color: #cbd5e1; color: #0f172a; }
-body.light-mode input:focus { border-color: #0284c7; box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.12); }
-
-/* ==========================================================================
-   LAYOUT STRUCTURES & ARCHITECTURE COMPONENTS
-   ========================================================================== */
+/* CONTAINER SETUP */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1.5rem;
+    position: relative;
 }
 
+/* NAVBAR DESIGN MODULE (Fixes vertical scaling issues) */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background: rgba(4, 7, 16, 0.85);
+    background: rgba(4, 7, 16, 0.9);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border-alpha);
+    border-bottom: 1px solid var(--border-subtle);
     position: sticky;
     top: 0;
     z-index: 1000;
-    transition: background var(--timing-core);
 }
 
 .logo {
-    font-family: var(--font-display);
+    font-family: var(--font-heading);
     font-size: 1.65rem;
     font-weight: 700;
     line-height: 0.85;
-    color: var(--gold-esports);
+    color: var(--accent-gold);
     text-decoration: none;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    transition: opacity var(--timing-core);
+    transition: opacity var(--transition-speed);
 }
 .logo span { color: #ffffff; }
 .logo:hover { opacity: 0.85; }
@@ -127,12 +92,12 @@ body.light-mode input:focus { border-color: #0284c7; box-shadow: 0 0 0 3px rgba(
     font-weight: 600;
     position: relative;
     padding: 0.4rem 0;
-    opacity: 0.72;
-    transition: opacity var(--timing-core), color var(--timing-core);
+    opacity: 0.75;
+    transition: opacity var(--transition-speed), color var(--transition-speed);
 }
 .nav-item:hover, .nav-item.active {
     opacity: 1;
-    color: var(--cyan-glow);
+    color: var(--accent-cyan);
 }
 .nav-item.active::after {
     content: '';
@@ -141,11 +106,11 @@ body.light-mode input:focus { border-color: #0284c7; box-shadow: 0 0 0 3px rgba(
     left: 0;
     width: 100%;
     height: 2px;
-    background: var(--cyan-glow);
+    background: var(--accent-cyan);
     border-radius: 2px;
 }
 
-/* ACCESSIBLE ACCELERATED BURGER INTERACTION SWITCH */
+/* MOBILE TOGGLE BARS */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -165,26 +130,32 @@ body.light-mode input:focus { border-color: #0284c7; box-shadow: 0 0 0 3px rgba(
 }
 
 /* ==========================================================================
-   DYNAMIC APP ROUTER DISPLAY AND GLASS PANELS
+   DYNAMIC VIEW ROUTING ENGINE (Fixes the blank page empty gap bug)
    ========================================================================== */
 .page-section {
-    display: none;
-    margin: 2.5rem 0;
+    display: none !important;  /* Force total layout height collapse when hidden */
+    height: 0;
+    overflow: hidden;
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(8px);
 }
+
 .page-section.active {
-    display: block;
-    animation: sectionFadeIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    display: block !important; /* Reset layout engine strictly on active target choice */
+    height: auto;
+    overflow: visible;
+    margin: 2rem 0;
+    animation: sectionFadeIn 0.3s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 @keyframes sectionFadeIn {
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* PREMIUM GLASS LOOK INTERFACE BACKGROUND */
 .glass-panel {
-    background: var(--panel-glass);
-    border: 1px solid var(--border-alpha);
+    background: var(--panel-glass-spec);
+    border: 1px solid var(--border-subtle);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-radius: 12px;
@@ -198,9 +169,9 @@ body.light-mode input:focus { border-color: #0284c7; box-shadow: 0 0 0 3px rgba(
 }
 
 .section-title {
-    font-family: var(--font-display);
-    font-size: clamp(2.2rem, 5vw, 3.2rem);
-    color: var(--gold-esports);
+    font-family: var(--font-heading);
+    font-size: clamp(2.2rem, 5vw, 3rem);
+    color: var(--accent-gold);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     line-height: 1;
@@ -213,11 +184,14 @@ body.light-mode input:focus { border-color: #0284c7; box-shadow: 0 0 0 3px rgba(
 }
 
 /* ==========================================================================
-   HOME VIEW HERO GRID (Fluid Design System Core)
+   HOME VIEW HERO REGION
    ========================================================================== */
 #page-home {
-    min-height: calc(82vh - 70px);
-    display: flex;
+    /* Auto dynamic centering calculations minus top navigation block heights */
+    min-height: calc(85vh - 70px); 
+}
+#page-home.active {
+    display: flex !important;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -236,7 +210,7 @@ body.light-mode input:focus { border-color: #0284c7; box-shadow: 0 0 0 3px rgba(
     gap: 0.5rem;
     border: 1px solid rgba(0, 180, 216, 0.25);
     background: rgba(0, 180, 216, 0.05);
-    color: var(--cyan-glow);
+    color: var(--accent-cyan);
     padding: 0.4rem 1rem;
     border-radius: 100px;
     font-size: 0.75rem;
@@ -246,16 +220,16 @@ body.light-mode input:focus { border-color: #0284c7; box-shadow: 0 0 0 3px rgba(
 }
 
 .hero-title {
-    font-family: var(--font-display);
-    font-size: clamp(3.2rem, 9vw, 5.8rem);
-    line-height: 0.92;
-    color: var(--gold-esports);
+    font-family: var(--font-heading);
+    font-size: clamp(3.2rem, 9vw, 5.5rem);
+    line-height: 0.95;
+    color: var(--accent-gold);
     text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
     margin-bottom: 1.25rem;
 }
 
 .hero-subtitle {
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
     color: var(--text-dimmed);
     max-width: 520px;
     margin-bottom: 2.5rem;
@@ -266,14 +240,14 @@ body.light-mode input:focus { border-color: #0284c7; box-shadow: 0 0 0 3px rgba(
     background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
     color: #ffffff;
     border: none;
-    font-family: var(--font-display);
+    font-family: var(--font-heading);
     font-size: 1.5rem;
     letter-spacing: 0.5px;
     padding: 0.75rem 2.5rem;
     border-radius: 4px;
     cursor: pointer;
     box-shadow: 0 4px 20px rgba(0, 180, 216, 0.3);
-    transition: transform var(--timing-core), box-shadow var(--timing-core);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 .btn-primary:hover {
     transform: translateY(-2px);
@@ -281,88 +255,89 @@ body.light-mode input:focus { border-color: #0284c7; box-shadow: 0 0 0 3px rgba(
 }
 
 /* ==========================================================================
-   INPUTS & REGISTRATION FORMS ARCHITECTURE
+   INPUT FIELDS & REGISTRATION FORM SPECIFICATIONS
    ========================================================================== */
-.form-wrapper { max-width: 800px; margin: 0 auto; }
+.form-wrapper {
+    max-width: 780px;
+    margin: 0 auto;
+}
+
 .form-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
 }
-.form-group { display: flex; flex-direction: column; gap: 0.5rem; }
-.form-group.full-width { grid-column: span 2; }
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
 
 .form-group label {
-    font-size: 0.82rem;
+    font-size: 0.85rem;
     font-weight: 600;
     color: #e2e8f0;
     letter-spacing: 0.2px;
 }
 
-input[type="text"], input[type="tel"], select {
+input[type="text"], input[type="url"], select {
     width: 100%;
-    background: var(--input-core);
+    background: var(--input-inner-bg);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 6px;
     padding: 0.8rem 1rem;
     color: #ffffff;
     font-family: var(--font-body);
     font-size: 0.95rem;
-    transition: border-color var(--timing-core), box-shadow var(--timing-core), background var(--timing-core);
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed), background var(--transition-speed);
 }
+
 input:focus, select:focus {
     outline: none;
-    border-color: var(--cyan-glow);
+    border-color: var(--accent-cyan);
     background: rgba(255, 255, 255, 0.04);
     box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.15);
 }
 
-/* Custom Select Drop Arrow Fixing Override */
-.select-wrapper { position: relative; }
+/* Custom dropdown caret configuration */
+.select-wrapper {
+    position: relative;
+}
 .select-wrapper::after {
-    content: '▾'; position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
-    color: var(--text-dimmed); pointer-events: none; font-size: 0.8rem;
+    content: '▾';
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-dimmed);
+    pointer-events: none;
+    font-size: 0.8rem;
 }
-select { appearance: none; padding-right: 2.5rem; }
+select {
+    appearance: none;
+    padding-right: 2.5rem;
+}
+select option {
+    background: #0b1021;
+    color: #fff;
+}
 
-/* RULES & DASHBOARD COMPONENT GRIDS */
-.rules-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+.submit-action-row {
+    text-align: center;
+    margin-top: 2.5rem;
 }
-.rule-card {
-    background: var(--panel-glass);
-    border: 1px solid var(--border-alpha);
-    border-top: 3px solid var(--cyan-glow);
-    border-radius: 8px;
-    padding: 2rem;
-    transition: transform var(--timing-core), background var(--timing-core);
+.form-submit-btn {
+    min-width: 200px;
+    font-weight: 600;
 }
-.rule-card:hover { transform: translateY(-3px); background: rgba(14, 22, 44, 0.8); }
-.rule-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
-.rule-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; font-weight: 600; }
-.rule-card p { font-size: 0.88rem; color: var(--text-dimmed); line-height: 1.5; }
-
-.dashboard-grid { max-width: 650px; margin: 0 auto; }
-.status-card { border-left: 4px solid var(--gold-esports); }
-.tier-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; }
-.tier-badge { font-family: var(--font-display); font-size: 1.2rem; color: var(--gold-esports); letter-spacing: 0.5px; }
-.match-row { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
-.match-row:last-child { border-bottom: none; }
-.match-row .player { font-weight: 500; font-size: 0.95rem; }
-.match-row .vs-label { font-size: 0.75rem; color: var(--text-dimmed); text-transform: uppercase; font-weight: 700; }
-.badge { font-size: 0.7rem; padding: 3px 8px; border-radius: 4px; font-weight: 700; letter-spacing: 0.5px; }
-.badge-live { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.2); }
-.badge-delay { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.2); }
 
 /* ==========================================================================
-   MOBILE INTERACTION & RESPONSIVE DRAWER TRANSFORM CONTROLLER
+   MOBILE INTERFACE STRUCTURAL OVERRIDES
    ========================================================================== */
 @media (max-width: 768px) {
     .menu-toggle { display: flex; }
     
-    /* Animation classes for the structural hamburger button lines */
     .menu-toggle.active .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
     .menu-toggle.active .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
@@ -379,10 +354,9 @@ select { appearance: none; padding-right: 2.5rem; }
         flex-direction: column;
         padding: 2.5rem 2rem;
         gap: 1.75rem;
-        border-left: 1px solid var(--border-alpha);
-        /* Hardware accelerated shifting matrices instead of layout spacing properties */
+        border-left: 1px solid var(--border-subtle);
         transform: translateX(100%);
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .nav-links.open {
@@ -392,7 +366,6 @@ select { appearance: none; padding-right: 2.5rem; }
     .nav-item { font-size: 1.1rem; width: 100%; padding: 0.5rem 0; }
     .nav-item.active::after { display: none; }
     
-    .form-grid { grid-template-columns: 1fr; gap: 1rem; }
-    .form-group.full-width { grid-column: span 1; }
+    .form-grid { grid-template-columns: 1fr; gap: 1.25rem; }
     .glass-panel { padding: 1.75rem 1.25rem; }
 }
