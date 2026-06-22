@@ -1,133 +1,267 @@
 /* ==========================================================================
-   eFootball Core Theme Setup & Variables
+   Gaming Platform Stylesheet - Premium Custom Design
    ========================================================================== */
 :root {
-    /* Dark Mode Theme Palettes */
-    --bg-dark: #0a0e17;
-    --text-dark: #f8fafc;
-    --border-dark: rgba(255,255,255,0.1);
-    --text-muted-dark: #cbd5e1;
-    
-    /* Light Mode Theme Palettes */
-    --bg-light: #f1f5f9;
-    --text-light: #0f172a;
-    --border-light: rgba(0,0,0,0.15);
-    --text-muted-light: #475569;
-
-    /* Theme Identity Colors */
-    --accent-blue: #00b4d8;
-    --accent-gold: #ffd700;
-    
+    --bg-dark: #070a12;
+    --text-white: #ffffff;
+    --text-muted: #94a3b8;
+    --accent-cyan: #00b4d8;
+    --accent-yellow: #ffd700;
     --font-heading: 'Teko', sans-serif;
     --font-body: 'Inter', sans-serif;
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition: all 0.25s ease-in-out;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html, body {
-    overflow-x: hidden;
-    width: 100%;
-    min-height: 100vh;
-}
-
-/* ==========================================================================
-   Background & Theme Engine
-   ========================================================================== */
 body {
     font-family: var(--font-body);
-    transition: var(--transition);
-    line-height: 1.5;
-    /* Dark Mode: Dark overlay on stadium image */
+    color: var(--text-white);
     background-color: var(--bg-dark);
-    background-image: linear-gradient(rgba(10, 14, 23, 0.88), rgba(10, 14, 23, 0.95)), url('stadium-bg.jpg');
+    /* Your local image background setup */
+    background-image: linear-gradient(rgba(7, 10, 18, 0.85), rgba(7, 10, 18, 0.95)), url('stadium-bg.jpg');
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    color: var(--text-dark);
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
-body.light-mode {
-    background-color: var(--bg-light);
-    /* LIGHT MODE BRIGHTENER: White overlay to make the image soft and bright */
-    background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.90)), url('stadium-bg.jpg');
-    color: var(--text-light);
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
-
-/* Glassmorphism Panels */
-.glass-panel {
-    background: rgba(15, 23, 42, 0.6);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--border-dark);
-}
-
-body.light-mode .glass-panel {
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid var(--border-light);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
-}
-
-/* Typography & Contrast Fixes */
-h1, h2, h3 { font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 1px; }
-.text-center { text-align: center; }
-.container { max-width: 1100px; margin: 0 auto; padding: 0 15px; }
-
-.highlight-gold { color: var(--accent-gold); }
-body.light-mode .highlight-gold { color: #b45309; font-weight: bold; } /* Darker Gold for visibility */
-
-.section-title { font-size: 3.5rem; margin-bottom: 20px; color: var(--accent-gold); line-height: 1; text-align: center; }
-body.light-mode .section-title { color: #b45309; }
 
 /* ==========================================================================
-   Components (Nav, Hero, Cards)
+   NAVIGATION BAR (Fixes spacing bugs from image 1000027420.jpg)
    ========================================================================== */
 .navbar {
-    display: flex; 
-    justify-content: space-between; 
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 15px 30px; 
-    position: sticky; 
-    top: 0; 
-    z-index: 100;
-    background: rgba(10, 14, 23, 0.85); 
-    border-bottom: 1px solid var(--border-dark);
-}
-body.light-mode .navbar { background: rgba(241, 245, 249, 0.85); border-bottom: 1px solid var(--border-light); }
-
-.logo { font-family: var(--font-heading); font-size: 2.2rem; font-weight: 700; line-height: 1; }
-.logo span { color: var(--accent-blue); }
-
-nav { display: flex; align-items: center; gap: 20px; }
-nav a { color: inherit; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
-.btn-theme { padding: 6px 12px; border-radius: 20px; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: inherit; }
-
-.hero { padding: 80px 20px; text-align: center; border-radius: 12px; margin-top: 40px; }
-.hero h1 { font-size: 4.5rem; color: var(--accent-blue); }
-body.light-mode .hero h1 { color: #0284c7; }
-
-.btn-primary, .btn-submit {
-    display: inline-block; 
-    background: linear-gradient(135deg, var(--accent-blue), #03045e);
-    color: #fff; padding: 14px 38px; font-family: var(--font-heading); 
-    font-size: 1.6rem; border-radius: 4px; border: none; cursor: pointer; text-transform: uppercase;
+    padding: 15px 25px;
+    background: rgba(7, 10, 18, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
-.card { padding: 25px; border-radius: 8px; border-top: 4px solid var(--accent-blue); }
+/* Stacked logo layout matching original interface asset */
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 0.9;
+    color: var(--accent-yellow);
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: var(--transition);
+}
+.logo span { color: #fff; }
+.logo:hover { opacity: 0.85; transform: scale(0.98); }
 
-/* Registration Form */
-.form-container { max-width: 600px; margin: 0 auto; padding: 30px; border-radius: 12px; }
-input, select { width: 100%; padding: 12px; border-radius: 4px; background: rgba(0,0,0,0.2); border: 1px solid var(--border-dark); color: inherit; }
-body.light-mode input, body.light-mode select { background: #fff; border: 1px solid var(--border-light); }
+.nav-links {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
 
-/* Dashboard List */
-.player-list { padding-left: 20px; font-size: 1.1rem; font-weight: 600; }
-.tier-group { margin-bottom: 25px; }
-.tier-group h4 { padding: 5px; background: rgba(0,0,0,0.2); border-radius: 4px; margin-bottom: 10px; font-size: 0.9rem; }
+.nav-item {
+    color: var(--text-white);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    position: relative;
+    padding: 5px 0;
+    transition: var(--transition);
+    opacity: 0.75;
+}
+.nav-item:hover, .nav-item.active {
+    opacity: 1;
+    color: var(--accent-cyan);
+}
 
+/* Underline tracker element logic */
+.nav-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-cyan);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* ==========================================================================
+   INTERACTIVE APPLICATION PAGES CONTENT CONTROLLER
+   ========================================================================== */
+.page-section {
+    display: none; /* Keeps auxiliary sections clean and out of the default view */
+    margin-top: 40px;
+}
+.page-section.active {
+    display: block; /* Shows only the targeted functional page content block */
+}
+
+/* Glass panel wrapper styles for Guidelines, forms and tables */
+.glass-panel {
+    background: rgba(15, 23, 42, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    color: var(--accent-yellow);
+    margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   HOME VIEW HERO REGION (Exact 1:1 Match to Red Circle Frame)
+   ========================================================================== */
+#page-home {
+    min-height: calc(80vh - 100px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-wrapper {
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pill-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--accent-cyan);
+    background: rgba(0, 180, 216, 0.08);
+    color: var(--accent-cyan);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 15px rgba(0, 180, 216, 0.15);
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 5.5rem;
+    line-height: 0.95;
+    font-weight: 700;
+    color: var(--accent-yellow);
+    text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 35px;
+    max-width: 500px;
+}
+
+.btn-primary {
+    background: #00b4d8;
+    background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
+    color: #fff;
+    border: none;
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 12px 40px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 180, 216, 0.35);
+    transition: all 0.2s ease;
+}
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(0, 180, 216, 0.5);
+}
+
+/* Fade animation engine layout configuration */
+.animate-fade {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   MOBILE LAYOUT ENGINE (Fixes spacing limitations gracefully)
+   ========================================================================== */
 @media (max-width: 768px) {
-    .navbar { flex-direction: column; gap: 15px; }
-    .hero h1 { font-size: 3rem; }
+    .menu-toggle {
+        display: block; /* Displays modern drop drawer toggle switch indicator */
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 73px;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: calc(100vh - 73px);
+        background: rgba(10, 14, 23, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 40px 30px;
+        gap: 30px;
+        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border-left: 1px solid rgba(255, 255, 255, 0.08);
+        z-index: 999;
+    }
+
+    .nav-links.open {
+        right: 0; /* Smooth slide-in navigation panel layout presentation overlay */
+    }
+
+    .nav-item {
+        font-size: 1.3rem;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .hero-title {
+        font-size: 3.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
 }

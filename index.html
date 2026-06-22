@@ -3,274 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EDN REGISTRATIONS</title>
+    <title>PES Matches - eFootball Platform</title>
+    <!-- Teko & Inter Fonts for a clean professional gaming look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Teko:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="dark-mode">
+<body>
 
+    <!-- NAVBAR SECTION -->
     <header class="navbar">
-        <div class="logo" onclick="switchPage('home')" style="cursor: pointer;">EDN <span>REGISTRATIONS</span></div>
-        <nav>
-            <a href="#" onclick="switchPage('home')">Home</a>
-            <a href="#" onclick="switchPage('guidelines')">Guidelines</a>
-            <a href="#" onclick="switchPage('register')" class="cta-nav">Registration Here</a>
-            <a href="#" onclick="switchPage('dashboard')">Live Dashboard</a>
-            <button id="theme-toggle" class="btn-theme">☀️ Light Mode</button>
+        <!-- Clicking this opens your Facebook Group in a new tab -->
+        <a href="https://facebook.com/groups/pesmatches" target="_blank" class="logo">
+            PES <br><span>MATCHES</span>
+        </a>
+
+        <!-- Mobile-friendly Navigation Controls -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">☰</button>
+        <nav class="nav-links" id="navLinks">
+            <a href="#" class="nav-item active" onclick="switchPage('home')">Home</a>
+            <a href="#" class="nav-item" onclick="switchPage('guidelines')">Guidelines</a>
+            <a href="#" class="nav-item" onclick="switchPage('registration')">Registration Here</a>
+            <a href="#" class="nav-item" onclick="switchPage('dashboard')">Live Dashboard</a>
         </nav>
     </header>
 
-    <div id="events" class="noticeboard-container">
-        <div class="noticeboard">
-            <span class="notice-item active">🟢 ACTIVE: PES League CAMP S6</span>
-            <span class="notice-item upcoming">🟡 UPCOMING: Ultimate Player S12</span>
-            <span class="notice-item completed">🔴 COMPLETED: eLite Division League S6</span>
-        </div>
-    </div>
-
     <main class="container">
-
-        <div id="page-home" class="view-page active">
-            <section class="hero glass-panel">
-                <div class="hero-content">
-                    <h1>ENTER THE PITCHNATION</h1>
-                    <p>Claim your slot, submit validation, and track your upcoming matches live.</p>
-                    <button onclick="switchPage('register')" class="btn-primary">SECURE YOUR ENTRY</button>
-                </div>
-            </section>
-        </div>
-
-        <div id="page-guidelines" class="view-page">
-            <section class="section">
-                <h2 class="section-title">TOURNAMENT GUIDELINES</h2>
-                <div class="grid">
-                    <div class="card ef-card glass-panel" style="border-top-color: var(--accent-gold);">
-                        <h3 class="highlight-gold">🏆 League Tournament</h3>
-                        <ul>
-                            <li><strong>Match Duration:</strong> 12 minutes</li>
-                            <li><strong>Condition:</strong> Excellent</li>
-                            <li><strong>Extra Time & Penalty:</strong> OFF</li>
-                            <li><strong>Injury:</strong> OFF</li>
-                        </ul>
-                    </div>
-                    <div class="card ef-card glass-panel" style="border-top-color: var(--accent-blue);">
-                        <h3 style="color: var(--accent-blue);">⚔️ Knockout Tournament</h3>
-                        <ul>
-                            <li><strong>Match Duration:</strong> 12 minutes</li>
-                            <li><strong>Condition:</strong> Excellent</li>
-                            <li><strong>Extra Time & Penalty:</strong> ON</li>
-                            <li><strong>Injury:</strong> OFF</li>
-                        </ul>
-                    </div>
-                    <div class="card ef-card glass-panel" style="border-top-color: #ef4444;">
-                        <h3 style="color: #ef4444;">🔥 1v1 Bet</h3>
-                        <ul>
-                            <li>Players hold complete freedom to mutually discuss and finalize match duration, condition settings, extra time metrics, and penalties.</li>
-                        </ul>
-                    </div>
+        
+        <!-- ==========================================
+             HOME / DEFAULT VIEW (Circled in Red)
+             ========================================== -->
+        <section id="page-home" class="page-section active animate-fade">
+            <div class="hero-wrapper">
+                <div class="pill-badge">
+                    <span>⚽</span> EFOOTBALL TOURNAMENT PLATFORM
                 </div>
                 
-                <div class="alert-box glass-panel">
-                    <strong>🚨 MANDATORY POLICY:</strong> The match winner MUST capture and post their full-time result screenshot immediately to our official Facebook Group: <span class="highlight-gold">EDN</span>.<br>
-                    <em>*In the event of a Draw in a league match, at least one player must also capture and post the final result.</em>
-                </div>
-            </section>
-        </div>
-
-        <div id="page-register" class="view-page">
-            <section class="section form-section">
-                <div class="form-container glass-panel">
-                    <h2 class="section-title text-center" style="margin-bottom: 10px;">SECURE YOUR ENTRY</h2>
-                    <p class="text-center" style="color: var(--text-muted); margin-bottom: 30px; font-size: 0.9rem;">Verify pricing rules, choose payment platform, and drop transaction records below.</p>
-                    
-                    <form action="https://formspree.io/f/xykavnzn" method="POST">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" placeholder="Enter your full name / tournament tag" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="fb-profile">Facebook Profile Link</label>
-                            <input type="url" id="fb-profile" name="fb_profile" placeholder="https://facebook.com/yourprofile" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="category">Tournament Category</label>
-                            <select id="category" name="category" required>
-                                <option value="" disabled selected>Choose target tournament category...</option>
-                                <option value="league">League Tournament</option>
-                                <option value="knockout">Knockout Tournament</option>
-                                <option value="1v1">1 vs 1 Bet</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="amount">Payment Amount (NPR)</label>
-                            <select id="amount" name="amount" required disabled>
-                                <option value="" disabled selected>Please choose a tournament category first...</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Choose Payment Gateway</label>
-                            <div class="radio-group">
-                                <label class="radio-label"><input type="radio" name="payment_method" value="esewa" required> eSewa</label>
-                                <label class="radio-label"><input type="radio" name="payment_method" value="khalti" required> Khalti</label>
-                            </div>
-                            
-                            <div class="qr-container">
-                                <div class="qr-box">
-                                    <p>eSewa Scan Asset</p>
-                                    <img src="esewa-qr.jpg" alt="eSewa QR Asset Link" class="qr-img">
-                                </div>
-                                <div class="qr-box">
-                                    <p>Khalti Scan Asset</p>
-                                    <img src="khalti-qr.jpg" alt="Khalti QR Asset Link" class="qr-img">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="transaction-code">Transaction Code</label>
-                            <input type="text" id="transaction-code" name="transaction_code" placeholder="Paste structural reference ID / code here" required>
-                        </div>
-
-                        <button type="submit" class="btn-submit">SUBMIT REGISTRATION</button>
-                    </form>
-                </div>
-            </section>
-        </div>
-
-        <div id="page-dashboard" class="view-page">
-            <section class="section">
-                <h2 class="section-title text-center">LIVE PLAYER DASHBOARD</h2>
+                <h1 class="hero-title">ENTER THE PITCH</h1>
                 
-                <div class="grid">
-                    <div class="card ef-card glass-panel" style="border-top-color: var(--accent-gold);">
-                        <h3 class="highlight-gold text-center">🏆 LEAGUE SLOTS</h3>
-                        
-                        <div class="tier-group">
-                            <h4>Rs 100 Entry Pool</h4>
-                            <ol class="player-list">
-                                </ol>
-                        </div>
-                        <div class="tier-group">
-                            <h4>Rs 150 Entry Pool</h4>
-                            <ol class="player-list">
-                                </ol>
-                        </div>
-                        <div class="tier-group">
-                            <h4>Rs 200 Entry Pool</h4>
-                            <ol class="player-list">
-                                </ol>
-                        </div>
-                    </div>
+                <p class="hero-subtitle">
+                    Register for tournaments, validate your entry, and compete live
+                </p>
+                
+                <button class="btn-primary" onclick="switchPage('registration')">
+                    START REGISTRATION
+                </button>
+            </div>
+        </section>
 
-                    <div class="card ef-card glass-panel" style="border-top-color: var(--accent-blue);">
-                        <h3 style="color: var(--accent-blue);" class="text-center">⚔️ KNOCKOUT SLOTS</h3>
-                        
-                        <div class="tier-group">
-                            <h4>Rs 150 Entry Pool</h4>
-                            <ol class="player-list">
-                                </ol>
-                        </div>
-                        <div class="tier-group">
-                            <h4>Rs 200 Entry Pool</h4>
-                            <ol class="player-list">
-                                </ol>
-                        </div>
-                        <div class="tier-group">
-                            <h4>Rs 300 Entry Pool</h4>
-                            <ol class="player-list">
-                                </ol>
-                        </div>
-                    </div>
+        <!-- ==========================================
+             REPRESENTATIVE PAGES (Hidden until Selected)
+             ========================================== -->
+        <section id="page-guidelines" class="page-section glass-panel">
+            <h2 class="section-title">Tournament Rules & Guidelines</h2>
+            <!-- Your rules layout goes here -->
+        </section>
 
-                    <div class="card ef-card glass-panel" style="border-top-color: #ef4444;">
-                        <h3 style="color: #ef4444;" class="text-center">🔥 1V1 ACTIVE BETS</h3>
-                        
-                        <div class="tier-group">
-                            <h4>Rs 50 Pool</h4>
-                            <ul class="player-list bet-list">
-                                </ul>
-                        </div>
-                        <div class="tier-group">
-                            <h4>Rs 100 Pool</h4>
-                            <ul class="player-list bet-list">
-                                </ul>
-                        </div>
-                        <div class="tier-group">
-                            <h4>Rs 150 Pool</h4>
-                            <ul class="player-list bet-list">
-                                </ul>
-                        </div>
-                        <div class="tier-group">
-                            <h4>Rs 200 Pool</h4>
-                            <ul class="player-list bet-list">
-                                </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
+        <section id="page-registration" class="page-section glass-panel">
+            <h2 class="section-title">Tournament Registration</h2>
+            <!-- Your form code layout goes here -->
+        </section>
+
+        <section id="page-dashboard" class="page-section glass-panel">
+            <h2 class="section-title">Live Match Dashboard</h2>
+            <!-- Your active tournament ladders / python hook lists go here -->
+            <!-- Example: <!-- LEAGUE_150_HOOK --> -->
+        </section>
 
     </main>
 
-    <footer>
-        <p class="glass-panel" style="display:inline-block; padding: 10px 20px; border-radius: 20px;">
-            &copy; EDN. Hosted by: <a href="https://facebook.com/pesmatches5" target="_blank" class="footer-link">JON BONZ</a>
-        </p>
-    </footer>
-
+    <!-- UI Core Logic Script (Handles Mobile Menu & Page Switching seamlessly) -->
     <script>
-        // --- 1. SPA View Switcher Logic ---
+        // Toggle mobile navigation menu expansion
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            menuToggle.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
+        });
+
+        // Dynamic page section router
         function switchPage(pageId) {
-            // Hide all pages
-            document.querySelectorAll('.view-page').forEach(page => {
-                page.classList.remove('active');
+            // Close mobile navigation menu layout after choosing a selection
+            navLinks.classList.remove('open');
+            menuToggle.textContent = '☰';
+
+            // Hide all active view panels
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
             });
-            // Show targeted page
-            document.getElementById('page-' + pageId).classList.add('active');
-            window.scrollTo(0, 0);
-        }
 
-        // --- 2. Cost Array Management mapping ---
-        const categorySelect = document.getElementById('category');
-        const amountSelect = document.getElementById('amount');
-        
-        const priceMap = {
-            'league': ['Rs 100', 'Rs 150', 'Rs 200'],
-            'knockout': ['Rs 150', 'Rs 200', 'Rs 300'],
-            '1v1': ['Rs 50', 'Rs 100', 'Rs 150', 'Rs 200']
-        };
-
-        categorySelect.addEventListener('change', function() {
-            amountSelect.innerHTML = '<option value="" disabled selected>Choose Entry Amount...</option>';
-            amountSelect.disabled = false;
-            
-            const targetedRates = priceMap[this.value];
-            targetedRates.forEach(function(rate) {
-                const opt = document.createElement('option');
-                opt.value = rate;
-                opt.textContent = rate;
-                amountSelect.appendChild(opt);
+            // Remove highlighted states on nav items
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
             });
-        });
 
-        // --- 3. Light & Dark Aesthetic Controller ---
-        const themeBtn = document.getElementById('theme-toggle');
-        const layoutBody = document.body;
-
-        themeBtn.addEventListener('click', () => {
-            layoutBody.classList.toggle('light-mode');
-            if (layoutBody.classList.contains('light-mode')) {
-                themeBtn.textContent = '🌙 Dark Mode';
-            } else {
-                themeBtn.textContent = '☀️ Light Mode';
+            // Display selected target panel view
+            const targetPage = document.getElementById(`page-${pageId}`);
+            if (targetPage) {
+                targetPage.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
-        });
+
+            // Keep track of visually highlighted options in the top navigation bar
+            const clickedLink = Array.from(document.querySelectorAll('.nav-item')).find(el => el.textContent.toLowerCase().includes(pageId === 'home' ? 'home' : pageId.substring(0,4)));
+            if (clickedLink) clickedLink.classList.add('active');
+        }
     </script>
 </body>
 </html>
