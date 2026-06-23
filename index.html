@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="EDN PES Matches - Premium eFootball Tournament Platform">
-    <title>PES Matches — Enter The Pitch</title>
+    <meta name="description" content="Join the premier eFootball tournaments in Nepal. Register for the latest EDN leagues, track live standings, and compete with the elite regional players.">
+    <title>eFootball Tournament in Nepal | Easy Deposit Nepal (EDN)</title>
     
     <!-- Preconnect fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,7 +49,7 @@
         <section id="page-home" class="page-section active" aria-live="polite">
             <div class="hero-wrapper">
                 <div class="pill-badge">
-                    <span aria-hidden="true">⚽</span> EFOOTBALL TOURNAMENT PLATFORM
+                    <span aria-hidden="true">⚽</span> EFOOTBALL TOURNAMENT PLATFORM NEPAL
                 </div>
                 <h1 class="hero-title">ENTER THE PITCH</h1>
                 <p class="hero-subtitle">
@@ -146,28 +146,20 @@
 
     </main>
 
-    <!-- FLOATING TOURNAMENT STATUS NOTIFICATION -->
-    <div class="floating-notification" id="statusNotification">
-        <button class="close-notification" onclick="document.getElementById('statusNotification').classList.add('hidden');" aria-label="Close notification">×</button>
-        <div class="notification-header">Tournament Status</div>
-        <div class="status-list">
-            <!-- Active Row -->
-            <div class="status-item active-status">
-                <span class="status-dot animate-pulse"></span>
-                <span class="status-label">Active:</span> 
-                <span class="status-value">ULTIMATE PLAYER S12</span>
-            </div>
-            <!-- Upcoming Row -->
-            <div class="status-item upcoming-status">
-                <span class="status-dot"></span>
-                <span class="status-label">Upcoming:</span> 
-                <span class="status-value">ULTIMATE PLAYER S13 <span class="entry-tag">(Entry: ₹150)</span></span>
-            </div>
-            <!-- Completed Row -->
-            <div class="status-item completed-status">
-                <span class="status-dot"></span>
-                <span class="status-label">Completed:</span> 
-                <span class="status-value">PES LEAGUE CAMP S6</span>
+    <!-- BROADCAST HORIZONTAL NEWS TICKER -->
+    <div class="ticker-container" aria-label="Live Tournament Status Ticker">
+        <div class="ticker-header">STATUS</div>
+        <div class="ticker-marquee">
+            <div class="ticker-content">
+                <!-- Original Items Set -->
+                <span class="ticker-item active-item"><span class="ticker-dot pulse"></span><strong>Active:</strong> ULTIMATE PLAYER S12</span>
+                <span class="ticker-item upcoming-item"><span class="ticker-dot"></span><strong>Upcoming:</strong> ULTIMATE PLAYER S13 <span class="fee-tag">(Entry: ₹150)</span></span>
+                <span class="ticker-item completed-item"><span class="ticker-dot"></span><strong>Completed:</strong> PES LEAGUE CAMP S6</span>
+                
+                <!-- Duplicate Set for Clean Seamless Loop Visuals -->
+                <span class="ticker-item active-item"><span class="ticker-dot pulse"></span><strong>Active:</strong> ULTIMATE PLAYER S12</span>
+                <span class="ticker-item upcoming-item"><span class="ticker-dot"></span><strong>Upcoming:</strong> ULTIMATE PLAYER S13 <span class="fee-tag">(Entry: ₹150)</span></span>
+                <span class="ticker-item completed-item"><span class="ticker-dot"></span><strong>Completed:</strong> PES LEAGUE CAMP S6</span>
             </div>
         </div>
     </div>

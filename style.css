@@ -54,6 +54,7 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    padding-bottom: 45px; /* Safely accommodates the running banner height */
     transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
@@ -122,7 +123,7 @@ body {
 body .sun-icon { display: block; }
 body .moon-icon { display: none; }
 body.light-theme .sun-icon { display: none; }
-body.light-theme .moon-icon { display: block; }
+body.light-theme .moon-icon { block; }
 
 .nav-links {
     display: flex;
@@ -498,135 +499,120 @@ select option {
 }
 
 /* ==========================================================================
-   FLOATING NOTIFICATION SYSTEM (SMALL FONT & MICRO-ANIMATION)
+   INFINITE SCROLLING BROADCAST MARQUEE TICKER 
    ========================================================================== */
-.floating-notification {
+.ticker-container {
     position: fixed;
-    bottom: 24px;
-    right: 24px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 38px;
     background: var(--panel-glass-spec);
-    border: 1px solid var(--border-subtle);
+    border-top: 1px solid var(--border-subtle);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    padding: 1rem 1.25rem;
-    border-radius: 10px;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
     z-index: 2000;
-    max-width: 310px;
-    width: calc(100% - 48px);
-    
-    animation: floatingBob 3.5s ease-in-out infinite, notificationFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    transition: background var(--transition-speed), border var(--transition-speed), opacity 0.2s ease, transform 0.2s ease;
+    overflow: hidden;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+    transition: background var(--transition-speed), border var(--transition-speed);
 }
 
-.floating-notification.hidden {
-    opacity: 0;
-    transform: translateY(15px) scale(0.95);
-    pointer-events: none;
-}
-
-.notification-header {
+/* Fixed Broadcasting Title Block */
+.ticker-header {
+    background: linear-gradient(135deg, #0077b6 0%, #0096c7 100%);
+    color: #ffffff;
     font-family: var(--font-heading);
     font-size: 1.15rem;
     font-weight: 700;
     letter-spacing: 1px;
-    color: var(--accent-gold);
-    margin-bottom: 0.6rem;
-    border-bottom: 1px solid var(--border-subtle);
-    padding-bottom: 3px;
-    text-transform: uppercase;
-}
-
-.status-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.45rem;
-}
-
-.status-item {
-    font-size: 0.78rem;
-    color: var(--text-primary);
+    padding: 0 1.2rem;
+    height: 100%;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    line-height: 1.4;
+    justify-content: center;
+    z-index: 2005;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.4);
 }
 
-.status-label {
-    font-weight: 700;
-    color: var(--text-dimmed);
-    min-width: 68px;
+/* Infinite Rolling Track */
+.ticker-marquee {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
-.status-value {
+.ticker-content {
+    display: flex;
+    white-space: nowrap;
+    align-items: center;
+    animation: tickerScroll 24s linear infinite;
+}
+
+/* Micro Typography adjustments */
+.ticker-item {
+    font-size: 0.8rem;
     font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 2.5rem;
+    color: var(--text-primary);
 }
 
-.entry-tag {
+.ticker-item strong {
+    text-transform: uppercase;
+    margin-right: 0.3rem;
+    font-weight: 700;
+}
+
+.fee-tag {
     color: var(--accent-cyan);
     font-weight: 700;
-    margin-left: 2px;
+    margin-left: 0.25rem;
 }
 
-.status-dot {
+/* Individual Indicator Lights */
+.ticker-dot {
     width: 6px;
     height: 6px;
     border-radius: 50%;
+    margin-right: 0.5rem;
     display: inline-block;
-    flex-shrink: 0;
-}
-.active-status .status-dot { 
-    background-color: #10b981; 
-    box-shadow: 0 0 8px #10b981; 
-}
-.upcoming-status .status-dot { 
-    background-color: #3b82f6; 
-    box-shadow: 0 0 8px #3b82f6; 
-}
-.completed-status .status-dot { 
-    background-color: #64748b; 
 }
 
-.animate-pulse {
-    animation: dotPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+.active-item .ticker-dot {
+    background-color: #10b981;
+    box-shadow: 0 0 8px #10b981;
 }
 
-@keyframes dotPulse {
+.upcoming-item .ticker-dot {
+    background-color: #3b82f6;
+    box-shadow: 0 0 8px #3b82f6;
+}
+
+.completed-item .ticker-dot {
+    background-color: #64748b;
+}
+
+/* Micro-animations */
+.pulse {
+    animation: tickerPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes tickerPulse {
     0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: .4; transform: scale(1.15); }
+    50% { opacity: 0.4; transform: scale(1.15); }
 }
 
-.close-notification {
-    position: absolute;
-    top: 6px;
-    right: 12px;
-    background: transparent;
-    border: none;
-    color: var(--text-dimmed);
-    font-size: 1.15rem;
-    cursor: pointer;
-    line-height: 1;
-    transition: color 0.2s ease;
-}
-.close-notification:hover {
-    color: var(--text-primary);
+@keyframes tickerScroll {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
 }
 
-@keyframes floatingBob {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-}
-
-@keyframes notificationFadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@media (max-width: 768px) {
-    .floating-notification {
-        bottom: 16px;
-        left: 24px;
-        right: 24px;
-        max-width: none;
-    }
+/* Pause the scrolling animation on desktop hover for interactive accessibility */
+.ticker-marquee:hover .ticker-content {
+    animation-play-state: paused;
 }
