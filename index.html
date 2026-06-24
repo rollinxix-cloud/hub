@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ne">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Join the premier eFootball tournaments in Nepal. Register for the latest EDN leagues, track live standings, and compete with the elite regional players.">
+    
+    <!-- TARGETED SEO METADATA FOR NEPALESE EFOOTBALL SEARCHES -->
     <title>eFootball Tournament in Nepal | Easy Deposit Nepal (EDN)</title>
+    <meta name="description" content="नेपालको सबैभन्दा ठूलो eFootball प्रतियोगितामा भाग लिनुहोस्। Join premier eFootball mobile tournaments in Nepal, register via eSewa, track live standings, and compete with elite regional players.">
+    <meta name="keywords" content="eFootball tournament Nepal, PES matches Nepal, eFootball mobile tournament Nepal, eSewa gaming deposit Nepal, EDN league register, eFootball Nepal league, efootball 2026 nepal, pes nepal facebook group, online gaming tournament nepal, register efootball tournament nepal">
     
     <!-- Preconnect fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,6 +25,11 @@
         </a>
 
         <div class="nav-actions">
+            <!-- Language Selection Option Toggle -->
+            <button id="langToggle" class="lang-btn" aria-label="भाषा परिवर्तन गर्नुहोस् / Switch Language">
+                <span>🌐</span> <span id="langLabel">EN</span>
+            </button>
+
             <!-- Theme Toggle Button -->
             <button id="themeToggle" class="theme-btn" aria-label="Toggle Light/Dark Theme">
                 <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.22" x2="5.64" y2="17.78"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
@@ -37,8 +45,8 @@
         </div>
         
         <nav class="nav-links" id="navLinks" aria-label="Main Directory">
-            <a href="#" class="nav-item active" data-target="home" role="button">Home</a>
-            <a href="#" class="nav-item" data-target="registration" role="button">Register Here</a>
+            <a href="#" class="nav-item active" data-target="home" role="button" data-i18n="nav_home">गृहपृष्ठ</a>
+            <a href="#" class="nav-item" data-target="registration" role="button" data-i18n="nav_register">दर्ता गर्नुहोस्</a>
         </nav>
     </header>
 
@@ -49,14 +57,14 @@
         <section id="page-home" class="page-section active" aria-live="polite">
             <div class="hero-wrapper">
                 <div class="pill-badge">
-                    <span aria-hidden="true">⚽</span> EFOOTBALL TOURNAMENT PLATFORM NEPAL
+                    <span aria-hidden="true">⚽</span> <span data-i18n="hero_badge">इफुटबल प्रतियोगिता प्लेटफर्म नेपाल</span>
                 </div>
-                <h1 class="hero-title">ENTER THE PITCH</h1>
-                <p class="hero-subtitle">
-                    Register for tournaments, validate your entry, and compete live with elite regional players.
+                <h1 class="hero-title" data-i18n="hero_title">मैदानमा प्रवेश गर्नुहोस्</h1>
+                <p class="hero-subtitle" data-i18n="hero_subtitle">
+                    प्रतियोगिताहरूको लागि दर्ता गर्नुहोस्, आफ्नो प्रविष्टि प्रमाणित गर्नुहोस्, र उत्कृष्ट क्षेत्रीय खेलाडीहरूसँग प्रत्यक्ष प्रतिस्पर्धा गर्नुहोस्।
                 </p>
-                <button class="btn-primary" type="button" id="heroRegisterBtn">
-                    START REGISTRATION
+                <button class="btn-primary" type="button" id="heroRegisterBtn" data-i18n="hero_btn">
+                    दर्ता सुरु गर्नुहोस्
                 </button>
             </div>
         </section>
@@ -65,8 +73,8 @@
         <section id="page-registration" class="page-section" aria-live="polite">
             <div class="form-wrapper glass-panel">
                 <div class="section-header">
-                    <h2 class="section-title">Tournament Registration</h2>
-                    <p class="section-desc">Scan the eSewa QR below, make your payment, and fill out your information to secure your bracket slot.</p>
+                    <h2 class="section-title" data-i18n="form_title">खेल प्रतियोगिता दर्ता</h2>
+                    <p class="section-desc" data-i18n="form_desc">तल दिइएको eSewa QR स्क्यान गर्नुहोस्, भुक्तानी गर्नुहोस्, र आफ्नो स्थान सुरक्षित गर्न आफ्नो विवरणहरू भर्नुहोस्।</p>
                 </div>
 
                 <!-- eSewa Merchant QR Presentation Area -->
@@ -80,12 +88,12 @@
                         </div>
                     </div>
                     <div class="payment-instructions">
-                        <h3>How to Pay:</h3>
+                        <h3 data-i18n="pay_how">भुक्तानी कसरी गर्ने:</h3>
                         <ul>
-                            <li>Scan the QR code using your eSewa app.</li>
-                            <li>Enter the required entry fee amount.</li>
-                            <li>Keep a copy of your <strong>Transaction Code</strong>.</li>
-                            <li>Fill out and submit the form below.</li>
+                            <li data-i18n="pay_step1">आफ्नो eSewa एप प्रयोग गरेर QR कोड स्क्यान गर्नुहोस्।</li>
+                            <li data-i18n="pay_step2">आवश्यक प्रवेश शुल्क रकम प्रविष्ट गर्नुहोस्।</li>
+                            <li data-i18n="pay_step3">आफ्नो कारोबार कोड (Transaction Code) सुरक्षित राख्नुहोस्।</li>
+                            <li data-i18n="pay_step4">तलको फारम भरेर बुझाउनुहोस्।</li>
                         </ul>
                     </div>
                 </div>
@@ -95,50 +103,50 @@
                     <div class="form-grid">
                         <!-- Input Field: Name -->
                         <div class="form-group">
-                            <label for="playerName">Name</label>
-                            <input type="text" id="playerName" name="Name" placeholder="Your full name or in-game name" required maxlength="60">
+                            <label for="playerName" data-i18n="label_name">नाम</label>
+                            <input type="text" id="playerName" name="Name" placeholder="तपाईंको पूरा नाम वा गेमको नाम" required maxlength="60" data-i18n-placeholder="placeholder_name">
                         </div>
                         
                         <!-- Input Field: Facebook Link -->
                         <div class="form-group">
-                            <label for="fbLink">Facebook Link</label>
+                            <label for="fbLink" data-i18n="label_fb">फेसबुक लिंक</label>
                             <input type="url" id="fbLink" name="Facebook_Link" placeholder="e.g., https://facebook.com/username" required>
                         </div>
                         
                         <!-- Input Field: Tournament Type Dropdown -->
                         <div class="form-group">
-                            <label for="tournamentType">Tournament Type</label>
+                            <label for="tournamentType" data-i18n="label_type">प्रतियोगिताको प्रकार</label>
                             <div class="select-wrapper">
                                 <select id="tournamentType" name="Tournament_Type" required>
-                                    <option value="" disabled selected>Select tournament style</option>
-                                    <option value="League Tournament">League Tournament</option>
-                                    <option value="Knockout Tournament">Knockout Tournament</option>
-                                    <option value="1v1 bet">1v1 bet</option>
+                                    <option value="" disabled selected data-i18n="opt_default">प्रतियोगिताको तरिका चयन गर्नुहोस्</option>
+                                    <option value="League Tournament" data-i18n="opt_league">लिग प्रतियोगिता (League)</option>
+                                    <option value="Knockout Tournament" data-i18n="opt_knockout">नकआउट प्रतियोगिता (Knockout)</option>
+                                    <option value="1v1 bet" data-i18n="opt_bet">१v१ बाजी (1v1 bet)</option>
                                 </select>
                             </div>
                         </div>
                         
                         <!-- Input Field: Amount -->
                         <div class="form-group">
-                            <label for="payAmount">Amount</label>
+                            <label for="payAmount" data-i18n="label_amount">रकम</label>
                             <input type="text" id="payAmount" name="Amount" placeholder="e.g., Rs. 150" required>
                         </div>
 
                         <!-- Fixed Explicit eSewa Info Block -->
                         <div class="form-group">
-                            <label for="paymentMethod">Payment Method</label>
+                            <label for="paymentMethod" data-i18n="label_method">भुक्तानी माध्यम</label>
                             <input type="text" id="paymentMethod" name="Payment_Gateway" value="eSewa Wallet" readonly class="readonly-input">
                         </div>
                         
                         <!-- Input Field: Transaction Code -->
                         <div class="form-group">
-                            <label for="txCode">Transaction Code</label>
+                            <label for="txCode" data-i18n="label_tx">कारोबार कोड (Transaction Code)</label>
                             <input type="text" id="txCode" name="Transaction_Code" placeholder="Enter your eSewa transaction reference ID" required>
                         </div>
                     </div>
 
                     <div class="submit-action-row">
-                        <button type="submit" class="btn-primary form-submit-btn">Register</button>
+                        <button type="submit" class="btn-primary form-submit-btn" data-i18n="btn_submit">दर्ता गर्नुहोस्</button>
                     </div>
                 </form>
             </div>
@@ -148,24 +156,90 @@
 
     <!-- BROADCAST HORIZONTAL NEWS TICKER -->
     <div class="ticker-container" aria-label="Live Tournament Status Ticker">
-        <div class="ticker-header">STATUS</div>
+        <div class="ticker-header" data-i18n="ticker_header">स्थिति</div>
         <div class="ticker-marquee">
             <div class="ticker-content">
                 <!-- Original Items Set -->
-                <span class="ticker-item active-item"><span class="ticker-dot pulse"></span><strong>Active:</strong> ULTIMATE PLAYER S12</span>
-                <span class="ticker-item upcoming-item"><span class="ticker-dot"></span><strong>Upcoming:</strong> ULTIMATE PLAYER S13 <span class="fee-tag">(Entry: ₹150)</span></span>
-                <span class="ticker-item completed-item"><span class="ticker-dot"></span><strong>Completed:</strong> PES LEAGUE CAMP S6</span>
+                <span class="ticker-item active-item"><span class="ticker-dot pulse"></span><strong data-i18n="status_active">सक्रिय:</strong> ULTIMATE PLAYER S12</span>
+                <span class="ticker-item upcoming-item"><span class="ticker-dot"></span><strong data-i18n="status_upcoming">आगामी:</strong> ULTIMATE PLAYER S13 <span class="fee-tag">(Entry: Rs. 150)</span></span>
+                <span class="ticker-item completed-item"><span class="ticker-dot"></span><strong data-i18n="status_completed">सम्पन्न:</strong> PES LEAGUE CAMP S6</span>
                 
                 <!-- Duplicate Set for Clean Seamless Loop Visuals -->
-                <span class="ticker-item active-item"><span class="ticker-dot pulse"></span><strong>Active:</strong> ULTIMATE PLAYER S12</span>
-                <span class="ticker-item upcoming-item"><span class="ticker-dot"></span><strong>Upcoming:</strong> ULTIMATE PLAYER S13 <span class="fee-tag">(Entry: ₹150)</span></span>
-                <span class="ticker-item completed-item"><span class="ticker-dot"></span><strong>Completed:</strong> PES LEAGUE CAMP S6</span>
+                <span class="ticker-item active-item"><span class="ticker-dot pulse"></span><strong data-i18n="status_active">सक्रिय:</strong> ULTIMATE PLAYER S12</span>
+                <span class="ticker-item upcoming-item"><span class="ticker-dot"></span><strong data-i18n="status_upcoming">आगामी:</strong> ULTIMATE PLAYER S13 <span class="fee-tag">(Entry: Rs. 150)</span></span>
+                <span class="ticker-item completed-item"><span class="ticker-dot"></span><strong data-i18n="status_completed">सम्पन्न:</strong> PES LEAGUE CAMP S6</span>
             </div>
         </div>
     </div>
 
-    <!-- DYNAMIC ROUTER & THEME CONTROLLER -->
+    <!-- DYNAMIC ROUTER, TRANSLATION ENGINE & THEME CONTROLLER -->
     <script>
+        // Language Dictionary Map (Nepali Default)
+        const translations = {
+            ne: {
+                nav_home: "गृहपृष्ठ",
+                nav_register: "दर्ता गर्नुहोस्",
+                hero_badge: "इफुटबल प्रतियोगिता प्लेटफर्म नेपाल",
+                hero_title: "मैदानमा प्रवेश गर्नुहोस्",
+                hero_subtitle: "प्रतियोगिताहरूको लागि दर्ता गर्नुहोस्, आफ्नो प्रविष्टि प्रमाणित गर्नुहोस्, र उत्कृष्ट क्षेत्रीय खेलाडीहरूसँग प्रत्यक्ष प्रतिस्पर्धा गर्नुहोस्।",
+                hero_btn: "दर्ता सुरु गर्नुहोस्",
+                form_title: "खेल प्रतियोगिता दर्ता",
+                form_desc: "तल दिइएको eSewa QR स्क्यान गर्नुहोस्, भुक्तानी गर्नुहोस्, र आफ्नो स्थान सुरक्षित गर्न आफ्नो विवरणहरू भर्नुहोस्।",
+                pay_how: "भुक्तानी कसरी गर्ने:",
+                pay_step1: "आफ्नो eSewa एप प्रयोग गरेर QR कोड स्क्यान गर्नुहोस्।",
+                pay_step2: "आवश्यक प्रवेश शुल्क रकम प्रविष्ट गर्नुहोस्।",
+                pay_step3: "आफ्नो कारोबार कोड (Transaction Code) सुरक्षित राख्नुहोस्।",
+                pay_step4: "तलको फारम भरेर बुझाउनुहोस्।",
+                label_name: "नाम",
+                placeholder_name: "तपाईंको पूरा नाम वा गेमको नाम",
+                label_fb: "फेसबुक लिंक",
+                label_type: "प्रतियोगिताको प्रकार",
+                opt_default: "प्रतियोगिताको तरिका चयन गर्नुहोस्",
+                opt_league: "लिग प्रतियोगिता (League)",
+                opt_knockout: "नकआउट प्रतियोगिता (Knockout)",
+                opt_bet: "१v१ बाजी (1v1 bet)",
+                label_amount: "रकम",
+                label_method: "भुक्तानी माध्यम",
+                label_tx: "कारोबार कोड (Transaction Code)",
+                btn_submit: "दर्ता गर्नुहोस्",
+                ticker_header: "स्थिति",
+                status_active: "सक्रिय:",
+                status_upcoming: "आगामी:",
+                status_completed: "सम्पन्न:"
+            },
+            en: {
+                nav_home: "Home",
+                nav_register: "Register Here",
+                hero_badge: "EFOOTBALL TOURNAMENT PLATFORM NEPAL",
+                hero_title: "ENTER THE PITCH",
+                hero_subtitle: "Register for tournaments, validate your entry, and compete live with elite regional players.",
+                hero_btn: "START REGISTRATION",
+                form_title: "Tournament Registration",
+                form_desc: "Scan the eSewa QR below, make your payment, and fill out your information to secure your bracket slot.",
+                pay_how: "How to Pay:",
+                pay_step1: "Scan the QR code using your eSewa app.",
+                pay_step2: "Enter the required entry fee amount.",
+                pay_step3: "Keep a copy of your Transaction Code.",
+                pay_step4: "Fill out and submit the form below.",
+                label_name: "Name",
+                placeholder_name: "Your full name or in-game name",
+                label_fb: "Facebook Link",
+                label_type: "Tournament Type",
+                opt_default: "Select tournament style",
+                opt_league: "League Tournament",
+                opt_knockout: "Knockout Tournament",
+                opt_bet: "1v1 bet",
+                label_amount: "Amount",
+                label_method: "Payment Method",
+                label_tx: "Transaction Code",
+                btn_submit: "Register",
+                ticker_header: "STATUS",
+                status_active: "Active:",
+                status_upcoming: "Upcoming:",
+                status_completed: "Completed:"
+            }
+        };
+
         document.addEventListener('DOMContentLoaded', () => {
             const menuToggle = document.getElementById('menuToggle');
             const navLinks = document.getElementById('navLinks');
@@ -173,6 +247,38 @@
             const sections = document.querySelectorAll('.page-section');
             const heroRegisterBtn = document.getElementById('heroRegisterBtn');
             const themeToggle = document.getElementById('themeToggle');
+            const langToggle = document.getElementById('langToggle');
+            const langLabel = document.getElementById('langLabel');
+
+            // --- Multi-Language Switcher Implementation ---
+            let currentLang = localStorage.getItem('lang') || 'ne';
+            
+            function applyLanguage(lang) {
+                document.documentElement.lang = lang;
+                langLabel.textContent = lang === 'ne' ? 'EN' : 'ने';
+                
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (translations[lang][key]) {
+                        el.textContent = translations[lang][key];
+                    }
+                });
+
+                document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                    const key = el.getAttribute('data-i18n-placeholder');
+                    if (translations[lang][key]) {
+                        el.setAttribute('placeholder', translations[lang][key]);
+                    }
+                });
+            }
+            
+            applyLanguage(currentLang);
+
+            langToggle.addEventListener('click', () => {
+                currentLang = currentLang === 'ne' ? 'en' : 'ne';
+                localStorage.setItem('lang', currentLang);
+                applyLanguage(currentLang);
+            });
 
             // Responsive Mobile Top Dropdown Menu Toggle Handler
             const toggleMenu = () => {
